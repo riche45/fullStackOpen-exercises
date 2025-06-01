@@ -1,5 +1,3 @@
-import React from 'react'
-
 // Definimos los tipos para nuestros props
 interface Part {
   name: string
