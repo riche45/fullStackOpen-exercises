@@ -1,6 +1,7 @@
 interface Person {
   name: string
   number: string
+  id: number
 }
 
 interface PersonsProps {
@@ -11,7 +12,7 @@ const Persons = ({ persons }: PersonsProps) => {
   return (
     <div>
       {persons.map(person => 
-        <div key={person.name}>
+        <div key={person.id}>
           {person.name} {person.number}
         </div>
       )}
