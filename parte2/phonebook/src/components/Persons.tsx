@@ -1,19 +1,28 @@
-import type { Person } from '../services/persons'
+interface Person {
+  id: number
+  name: string
+  number: string
+}
 
 interface PersonsProps {
   persons: Person[]
-  onDelete: (person: Person) => void
+  deletePerson: (id: number) => void
 }
 
-const Persons = ({ persons, onDelete }: PersonsProps) => {
+const Persons = ({ persons, deletePerson }: PersonsProps) => {
   return (
     <div>
-      {persons.map(person => 
+      {persons.map(person => (
         <div key={person.id}>
           {person.name} {person.number}
-          <button onClick={() => onDelete(person)}>delete</button>
+          <button 
+            onClick={() => deletePerson(person.id)}
+            className="delete-button"
+          >
+            eliminar
+          </button>
         </div>
-      )}
+      ))}
     </div>
   )
 }

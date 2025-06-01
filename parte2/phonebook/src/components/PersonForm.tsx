@@ -1,37 +1,37 @@
 interface PersonFormProps {
   addPerson: (event: React.FormEvent) => void
   newName: string
-  handleNameChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+  setNewName: (value: string) => void
   newNumber: string
-  handleNumberChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+  setNewNumber: (value: string) => void
 }
 
-const PersonForm = ({ 
-  addPerson, 
-  newName, 
-  handleNameChange, 
-  newNumber, 
-  handleNumberChange 
+const PersonForm = ({
+  addPerson,
+  newName,
+  setNewName,
+  newNumber,
+  setNewNumber
 }: PersonFormProps) => {
   return (
     <form onSubmit={addPerson}>
       <div>
-        name: <input 
+        nombre: <input
           value={newName}
-          onChange={handleNameChange}
+          onChange={(e) => setNewName(e.target.value)}
         />
       </div>
       <div>
-        number: <input 
+        número: <input
           value={newNumber}
-          onChange={handleNumberChange}
+          onChange={(e) => setNewNumber(e.target.value)}
         />
       </div>
       <div>
-        <button type="submit">add</button>
+        <button type="submit">agregar</button>
       </div>
     </form>
   )
 }
 
-export default PersonForm 
+export default PersonForm

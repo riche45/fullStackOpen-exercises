@@ -2,26 +2,34 @@ import axios from 'axios'
 
 const baseUrl = 'http://localhost:3001/persons'
 
-export interface Person {
+interface Person {
+  id: number
   name: string
   number: string
-  id: number
 }
 
-const getAll = () => {
-  return axios.get<Person[]>(baseUrl).then(response => response.data)
+const getAll = async (): Promise<Person[]> => {
+  const response = await axios.get<Person[]>(baseUrl)
+  return response.data
 }
 
-const create = (newPerson: Omit<Person, 'id'>) => {
-  return axios.post<Person>(baseUrl, newPerson).then(response => response.data)
+const create = async (newPerson: Omit<Person, 'id'>): Promise<Person> => {
+  const response = await axios.post<Person>(baseUrl, newPerson)
+  return response.data
 }
 
-const remove = (id: number) => {
-  return axios.delete(`${baseUrl}/${id}`).then(response => response.data)
+const update = async (id: number, updatedPerson: Omit<Person, 'id'>): Promise<Person> => {
+  const response = await axios.put<Person>(`${baseUrl}/${id}`, updatedPerson)
+  return response.data
 }
 
-const update = (id: number, newPerson: Omit<Person, 'id'>) => {
-  return axios.put<Person>(`${baseUrl}/${id}`, newPerson).then(response => response.data)
+const remove = async (id: number): Promise<void> => {
+  await axios.delete(`${baseUrl}/${id}`)
 }
 
-export default { getAll, create, remove, update } 
+export default {
+  getAll,
+  create,
+  update,
+  remove
+} 

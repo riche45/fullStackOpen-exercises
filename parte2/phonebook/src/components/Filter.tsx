@@ -1,14 +1,14 @@
 interface FilterProps {
-  searchTerm: string
-  handleSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+  filter: string
+  setFilter: (value: string) => void
 }
 
-const Filter = ({ searchTerm, handleSearchChange }: FilterProps) => {
+const Filter = ({ filter, setFilter }: FilterProps) => {
   return (
     <div>
-      filter shown with: <input 
-        value={searchTerm}
-        onChange={handleSearchChange}
+      filtrar por nombre: <input 
+        value={filter}
+        onChange={(e) => setFilter(e.target.value)}
       />
     </div>
   )
