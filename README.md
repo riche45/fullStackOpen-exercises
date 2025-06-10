@@ -1,2 +1,0 @@
-# fullStackOpen-exercises
-excerises-platform
