@@ -1,0 +1,24 @@
+{
+  "notes": [
+    {
+      "id": "1",
+      "content": "first note from server",
+      "important": true
+    },
+    {
+      "id": "2",
+      "content": "second note",
+      "important": false
+    },
+    {
+      "id": "e5ce",
+      "content": "Very Important",
+      "important": true
+    },
+    {
+      "id": "c6fe",
+      "content": "this note is cool",
+      "important": true
+    }
+  ]
+}
